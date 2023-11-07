@@ -1,0 +1,2 @@
+# WpfToastNotify
+WPF集成Microsoft.Toolkit.Uwp.Notifications实现系统消息通知，附带一些其他方案实现系统消息通知
