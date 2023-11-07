@@ -6,8 +6,6 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using Windows.Foundation.Collections;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Windows.Media.Imaging;
 
 namespace WpfWin11Notify
@@ -19,7 +17,9 @@ namespace WpfWin11Notify
     {
         //private Notifier notifier;
 
-        private string _currentPath;
+        private readonly string _currentPath;
+
+        private const string AppId = "Kikyo.Shaw";
 
         public MainWindow()
         {
@@ -88,8 +88,8 @@ namespace WpfWin11Notify
             var path = Path.Combine(_currentPath, "1.jpg");
 
             new ToastContentBuilder()
-                .AddText("虎牙发来一条消息") // 标题文本
-                .AddText("周星星开播啦，赶紧过来围观!")
+                .AddText("系统发来一条消息") // 标题文本
+                .AddText("Windows更新了，赶紧点击更新吧!")
                 .AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle)
                 .AddButton(new ToastButton()
                     .SetContent("Like")
@@ -111,8 +111,8 @@ namespace WpfWin11Notify
             var path = Path.Combine(_currentPath, "1.jpg");
 
             var builder = new ToastContentBuilder();
-            builder.AddText("虎牙发来一条消息");
-            builder.AddText("周星星开播啦，赶紧过来围观!");
+            builder.AddText("系统发来一条消息");
+            builder.AddText("Windows更新了，赶紧点击更新吧!");
             builder.AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle);
             builder.AddButton(new ToastButton()
                 .SetContent("Like")
@@ -130,8 +130,8 @@ namespace WpfWin11Notify
             //var urlPath = "https://huyaimg.msstatic.com/avatar/1031/64/ef633c67bf261723683647ebd14356_180_135.jpg?1650617437";
 
             var content = new ToastContentBuilder()
-                .AddText("虎牙发来一条消息") // 标题文本
-                .AddText("周星星开播啦，赶紧过来围观!")
+                .AddText("系统发来一条消息") // 标题文本
+                .AddText("Windows更新了，赶紧点击更新吧!")
                 .AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle)
                 .AddButton(new ToastButton()
                     .SetContent("Like")
@@ -144,7 +144,7 @@ namespace WpfWin11Notify
 
             var toast = new ToastNotification(content.GetXml());
             toast.Dismissed += ToastNotification_Dismissed;
-            ToastNotificationManager.CreateToastNotifier("HuYa.HuyaClient").Show(toast);
+            ToastNotificationManager.CreateToastNotifier(AppId).Show(toast);
         }
 
         private void ToastNotification_Dismissed(ToastNotification sender, ToastDismissedEventArgs args)
@@ -170,8 +170,8 @@ namespace WpfWin11Notify
             var path = Path.Combine(_currentPath, "th-c6.png");
 
             new ToastContentBuilder()
-                .AddText("虎牙发来一条消息") // 标题文本
-                .AddText("坏空空开播啦，赶紧过来围观!")
+                .AddText("系统发来一条消息") // 标题文本
+                .AddText("office更新了，赶紧点击更新吧!")
                 .AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle)
                 .Show(toast =>
                 {
@@ -212,7 +212,7 @@ namespace WpfWin11Notify
             _userControl ??= new NotifyContent();
             Hardcodet.Wpf.TaskbarNotification.TaskbarIcon tbi = new Hardcodet.Wpf.TaskbarNotification.TaskbarIcon();
             tbi.Icon = new System.Drawing.Icon("shortcut_icon.ico");
-            tbi.ToolTipText = "虎牙直播";
+            tbi.ToolTipText = "系统通知";
             //System.Windows.Controls.Label label = new System.Windows.Controls.Label()
             //{
             //    Content = "Your content here",
@@ -275,8 +275,8 @@ namespace WpfWin11Notify
             var path = Path.Combine(_currentPath, "th-c6.png");
 
             new ToastContentBuilder()
-                .AddText("虎牙发来一条消息") // 标题文本
-                .AddText("周星星开播啦，赶紧过来围观!")
+                .AddText("系统发来一条消息") // 标题文本
+                .AddText("Windows更新了，赶紧点击更新吧!")
                 .AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle)
                 .AddArgument("id", "文本") // 添加参数
                 .Show();
@@ -287,8 +287,8 @@ namespace WpfWin11Notify
             var path = Path.Combine(_currentPath, "th-c6.png");
 
             new ToastContentBuilder()
-                .AddText("虎牙发来一条消息") // 标题文本
-                .AddText("周星星开播啦，赶紧过来围观!")
+                .AddText("系统发来一条消息") // 标题文本
+                .AddText("Windows更新了，赶紧点击更新吧!")
                 .AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle)
                 .AddButton(new ToastButton()
                     .SetContent("Like")
@@ -306,8 +306,8 @@ namespace WpfWin11Notify
             var path2 = Path.Combine(_currentPath, "1.jpg");
 
             new ToastContentBuilder()
-                .AddText("虎牙发来一条消息") // 标题文本
-                .AddText("周星星开播啦，赶紧过来围观!")
+                .AddText("系统发来一条消息") // 标题文本
+                .AddText("Windows更新了，赶紧点击更新吧!")
                 .AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle)
                 .AddInlineImage(new Uri(path2))
                 .AddArgument("id", "图片") // 添加参数
@@ -319,8 +319,8 @@ namespace WpfWin11Notify
             var path = Path.Combine(_currentPath, "th-c6.png");
 
             new ToastContentBuilder()
-                .AddText("虎牙发来一条消息") // 标题文本
-                .AddText("坏空空开播啦，赶紧过来围观!")
+                .AddText("系统发来一条消息") // 标题文本
+                .AddText("office更新了，赶紧点击更新吧!")
                 .AddAppLogoOverride(new Uri(path), ToastGenericAppLogoCrop.Circle)
                 .Show(toast =>
                 {

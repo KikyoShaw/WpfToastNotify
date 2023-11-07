@@ -13,7 +13,7 @@ namespace WpfWin11Notify
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            SetCurrentProcessExplicitAppUserModelID("HuYa.HuyaClient");
+            SetCurrentProcessExplicitAppUserModelID("Kikyo.Shaw");
             // 剩余的初始化代码...
             base.OnStartup(e);
         }
